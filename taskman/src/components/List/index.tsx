@@ -1,8 +1,9 @@
+import { useState } from 'react'
 import Item from './Item'
 import ListStyle from './ListStyle.module.scss'
 
 const List = () => {
-  const tasks = [
+  const [tasks, setTasks] = useState([
     {
       title: 'React',
       time: '01:30:00',
@@ -15,11 +16,22 @@ const List = () => {
       title: 'MUI',
       time: '00:40:00',
     },
-  ]
+  ])
+
+  const handleAddTask = () => {
+    console.log('handleAddTask')
+    setTasks([
+      ...tasks,
+      {
+        title: 'MUI',
+        time: '00:40:00',
+      },
+    ])
+  }
 
   return (
     <aside className={ListStyle.taskList}>
-      <h2>Today's tasks</h2>
+      <h2 onClick={handleAddTask}>Today's tasks</h2>
       <ul>
         {tasks
           ? tasks.map((task, index) => (
