@@ -1,11 +1,11 @@
 import Form from '../components/Form'
 import List from '../components/List'
-import './styles.scss'
+import HomeStyle from './HomeStyle.module.scss'
 
 const Home = () => {
   return (
-    <div className="AppStyle">
-      <header className="App-header">
+    <div className={HomeStyle.AppStyle}>
+      <header className={HomeStyle.AppHeader}>
         <h1>Taskman</h1>
       </header>
       <div>

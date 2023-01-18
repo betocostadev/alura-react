@@ -1,4 +1,4 @@
-import './styles.scss'
+import ButtonStyle from './ButtonStyle.module.scss'
 // const buttonStyles = {
 //   border: 'none',
 //   borderRadius: '20%',
@@ -8,7 +8,7 @@ import './styles.scss'
 // }
 
 const Button = () => {
-  return <button className="btn">Button</button>
+  return <button className={ButtonStyle.btn}>Button</button>
 }
 
 export default Button

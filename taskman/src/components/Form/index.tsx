@@ -1,10 +1,10 @@
 import Button from '../Button'
-import './styles.scss'
+import FormStyle from './FormStyle.module.scss'
 
 const Form = () => {
   return (
-    <form className="new-task">
-      <div className="input-container">
+    <form className={FormStyle.newTask}>
+      <div className={FormStyle.inputContainer}>
         <label htmlFor="title">Add your task</label>
         <input
           type="text"
@@ -14,7 +14,7 @@ const Form = () => {
           required
         />
       </div>
-      <div className="input-container">
+      <div className={FormStyle.inputContainer}>
         <label htmlFor="time">Add the time</label>
         <input
           type="time"
