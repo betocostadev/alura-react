@@ -7,8 +7,8 @@ import ButtonStyle from './ButtonStyle.module.scss'
 //   fontSize: '1.2rem',
 // }
 
-const Button = () => {
-  return <button className={ButtonStyle.btn}>Button</button>
+const Button = (props: React.PropsWithChildren) => {
+  return <button className={ButtonStyle.btn}>{props.children}</button>
 }
 
 export default Button
