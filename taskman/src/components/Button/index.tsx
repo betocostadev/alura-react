@@ -7,8 +7,15 @@ import ButtonStyle from './ButtonStyle.module.scss'
 //   fontSize: '1.2rem',
 // }
 
-const Button = (props: React.PropsWithChildren) => {
-  return <button className={ButtonStyle.btn}>{props.children}</button>
+const Button: React.FC<{ children: any; type?: any }> = ({
+  children,
+  type,
+}) => {
+  return (
+    <button className={ButtonStyle.btn} type={type ? type : 'button'}>
+      {children}
+    </button>
+  )
 }
 
 export default Button
