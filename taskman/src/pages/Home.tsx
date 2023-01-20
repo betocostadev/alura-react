@@ -17,14 +17,13 @@ const Home = () => {
         selected: oTask.id === task.id ? true : false,
       }))
     )
-    console.log(selected)
   }
 
   return (
     <div className={HomeStyle.AppStyle}>
       <Form setTasks={setTasks} />
       <List tasks={tasks} selectTask={selectTask} />
-      <Stopwatch />
+      <Stopwatch selected={selected} />
     </div>
   )
 }
