@@ -21,9 +21,8 @@ const Stopwatch = ({ selected }: Props) => {
       <p className={StopwatchStyle.title}>
         Choose a task to start the Stopwatch
       </p>
-      <p>{time}</p>
       <div className={StopwatchStyle.watchWrapper}>
-        <Watch />
+        <Watch time={time} />
       </div>
       <Button>Start</Button>
     </div>
