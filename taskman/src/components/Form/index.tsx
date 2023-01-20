@@ -1,14 +1,14 @@
-import React, { useState } from 'react'
+import { Dispatch, useState } from 'react'
 import Button from '../Button'
 import FormStyle from './FormStyle.module.scss'
 import { ITask } from '../../types/task'
 
 type Props = {
-  setTasks: React.Dispatch<React.SetStateAction<ITask[] | []>>
+  setTasks: Dispatch<React.SetStateAction<ITask[] | []>>
 }
 
 // const Form = (setTasks: React.Dispatch<React.SetStateAction<ITask[]>>) => {
-const Form = (setTasks: Props) => {
+const Form = ({ setTasks }: Props) => {
   const [title, setTitle] = useState('')
   const [time, setTime] = useState('')
 
@@ -21,14 +21,6 @@ const Form = (setTasks: Props) => {
   const handleSendForm = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     setTasks((oldTasks: ITask[]) => [...oldTasks, { title, time }])
-    // setTasks((oldTasks: any) => [...oldTasks, { title, time }])
-    // setTasks([
-    //   ...tasks,
-    //   {
-    //     title: 'MUI',
-    //     time: '00:40:00',
-    //   },
-    // ])
   }
 
   return (

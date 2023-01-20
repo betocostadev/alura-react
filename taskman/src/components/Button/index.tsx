@@ -1,3 +1,4 @@
+import { ButtonHTMLAttributes } from 'react'
 import ButtonStyle from './ButtonStyle.module.scss'
 // const buttonStyles = {
 //   border: 'none',
@@ -7,12 +8,16 @@ import ButtonStyle from './ButtonStyle.module.scss'
 //   fontSize: '1.2rem',
 // }
 
-const Button: React.FC<{ children: any; type?: any }> = ({
-  children,
-  type,
-}) => {
+type ButtonTypes = ButtonHTMLAttributes<HTMLButtonElement>
+
+type ButtonProps = {
+  type?: 'button' | 'submit' | 'reset' | undefined
+  children: string
+} & ButtonTypes
+
+export const Button = ({ children, type = 'button' }: ButtonProps) => {
   return (
-    <button className={ButtonStyle.btn} type={type ? type : 'button'}>
+    <button className={ButtonStyle.btn} type={type}>
       {children}
     </button>
   )
