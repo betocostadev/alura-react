@@ -1,16 +1,17 @@
 import { Dispatch, useState } from 'react'
 import Button from '../Button'
 import FormStyle from './FormStyle.module.scss'
+import { v4 as uuid } from 'uuid'
 import { ITask } from '../../types/task'
 
 type Props = {
-  setTasks: Dispatch<React.SetStateAction<ITask[] | []>>
+  setTasks: Dispatch<React.SetStateAction<ITask[]>>
 }
 
 // const Form = (setTasks: React.Dispatch<React.SetStateAction<ITask[]>>) => {
 const Form = ({ setTasks }: Props) => {
   const [title, setTitle] = useState('')
-  const [time, setTime] = useState('')
+  const [time, setTime] = useState('00:00:00')
 
   const handleChangeField = (e: { target: HTMLInputElement }) => {
     e.target.name === 'title'
@@ -20,7 +21,12 @@ const Form = ({ setTasks }: Props) => {
 
   const handleSendForm = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    setTasks((oldTasks: ITask[]) => [...oldTasks, { title, time }])
+    setTasks((oldTasks: ITask[]) => [
+      ...oldTasks,
+      { title, time, selected: false, done: false, id: uuid() },
+    ])
+    setTitle('')
+    setTime('00:00:00')
   }
 
   return (

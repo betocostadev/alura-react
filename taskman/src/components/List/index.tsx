@@ -2,14 +2,21 @@ import Item from './Item'
 import ListStyle from './ListStyle.module.scss'
 import { ITask } from '../../types/task'
 
-const List = ({ tasks }: { tasks: ITask[] }) => {
+interface Props {
+  tasks: ITask[]
+  selectTask: (selectedTask: ITask) => void
+}
+
+const List = ({ tasks, selectTask }: Props) => {
   return (
     <aside className={ListStyle.taskList}>
-      <h2>Today's tasks</h2>
+      <h2>
+        {tasks.length ? "Today's tasks" : 'Add your first task for today'}
+      </h2>
       <ul>
         {tasks
-          ? tasks.map((task, index) => (
-              <Item key={`${task.title}-${index}`} {...task} />
+          ? tasks.map((task) => (
+              <Item selectTask={selectTask} key={task.id} {...task} />
             ))
           : ''}
       </ul>
