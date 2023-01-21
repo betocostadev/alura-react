@@ -13,11 +13,23 @@ type ButtonTypes = ButtonHTMLAttributes<HTMLButtonElement>
 type ButtonProps = {
   type?: 'button' | 'submit' | 'reset' | undefined
   children: string
+  onClick?: () => void
+  disabled?: boolean
 } & ButtonTypes
 
-export const Button = ({ children, type = 'button' }: ButtonProps) => {
+export const Button = ({
+  children,
+  type = 'button',
+  onClick,
+  disabled = false,
+}: ButtonProps) => {
   return (
-    <button className={ButtonStyle.btn} type={type}>
+    <button
+      className={ButtonStyle.btn}
+      type={type}
+      onClick={onClick}
+      disabled={disabled}
+    >
       {children}
     </button>
   )

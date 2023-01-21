@@ -16,6 +16,16 @@ const Stopwatch = ({ selected }: Props) => {
     if (selected?.time) setTime(hourToSeconds(selected.time))
   }, [selected])
 
+  const runCounter = (time: number | undefined) => {
+    if (!time) return
+    setTimeout(() => {
+      if (time > 0) {
+        setTime(time - 1)
+        return runCounter(time - 1)
+      }
+    }, 1000)
+  }
+
   return (
     <div className={StopwatchStyle.stopwatch}>
       <p className={StopwatchStyle.title}>
@@ -24,7 +34,9 @@ const Stopwatch = ({ selected }: Props) => {
       <div className={StopwatchStyle.watchWrapper}>
         <Watch time={time} />
       </div>
-      <Button>Start</Button>
+      <Button disabled={!time} onClick={() => runCounter(time)}>
+        Start
+      </Button>
     </div>
   )
 }
