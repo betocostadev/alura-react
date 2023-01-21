@@ -19,11 +19,25 @@ const Home = () => {
     )
   }
 
+  const endTask = () => {
+    console.log('endTask')
+    if (selected) {
+      setTasks((oldTasks) =>
+        oldTasks.map((oTask) => ({
+          ...oTask,
+          selected: false,
+          done: oTask.id === selected.id ? true : false,
+        }))
+      )
+    }
+    setSelected(undefined)
+  }
+
   return (
     <div className={HomeStyle.AppStyle}>
       <Form setTasks={setTasks} />
       <List tasks={tasks} selectTask={selectTask} />
-      <Stopwatch selected={selected} />
+      <Stopwatch selected={selected} endTask={endTask} />
     </div>
   )
 }

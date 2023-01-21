@@ -7,9 +7,10 @@ import hourToSeconds from '../../utils/hourToSeconds'
 
 interface Props {
   selected: ITask | undefined
+  endTask: () => void
 }
 
-const Stopwatch = ({ selected }: Props) => {
+const Stopwatch = ({ selected, endTask }: Props) => {
   const [time, setTime] = useState<number>()
 
   useEffect(() => {
@@ -17,12 +18,13 @@ const Stopwatch = ({ selected }: Props) => {
   }, [selected])
 
   const runCounter = (time: number | undefined) => {
-    if (!time) return
+    if (time === undefined) return
     setTimeout(() => {
       if (time > 0) {
         setTime(time - 1)
         return runCounter(time - 1)
       }
+      endTask()
     }, 1000)
   }
 
