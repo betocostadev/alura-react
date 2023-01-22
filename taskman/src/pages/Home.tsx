@@ -20,13 +20,12 @@ const Home = () => {
   }
 
   const endTask = () => {
-    console.log('endTask')
     if (selected) {
       setTasks((oldTasks) =>
         oldTasks.map((oTask) => ({
           ...oTask,
           selected: false,
-          done: oTask.id === selected.id ? true : false,
+          done: oTask.id === selected.id ? true : oTask.done,
         }))
       )
     }

@@ -11,10 +11,13 @@ const Item = ({ id, title, time, selected, done, selectTask }: Props) => {
       className={`${ListStyle.item} ${
         selected ? ListStyle.itemSelected : done ? ListStyle.itemDone : ''
       }`}
-      onClick={() => selectTask({ id, title, time, selected, done })}
+      onClick={() => !done && selectTask({ id, title, time, selected, done })}
     >
       <h3>{title}</h3>
       <span>{time}</span>
+      {done && (
+        <span className={ListStyle.done} aria-label="Task completed"></span>
+      )}
     </li>
   )
 }

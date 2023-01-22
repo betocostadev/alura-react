@@ -11,24 +11,24 @@ import ButtonStyle from './ButtonStyle.module.scss'
 type ButtonTypes = ButtonHTMLAttributes<HTMLButtonElement>
 
 type ButtonProps = {
-  type?: 'button' | 'submit' | 'reset' | undefined
   children: string
-  onClick?: () => void
+  type?: 'button' | 'submit' | 'reset' | undefined
   disabled?: boolean
+  onClick?: () => void
 } & ButtonTypes
 
 export const Button = ({
   children,
   type = 'button',
-  onClick,
   disabled = false,
+  onClick,
 }: ButtonProps) => {
   return (
     <button
       className={ButtonStyle.btn}
       type={type}
-      onClick={onClick}
       disabled={disabled}
+      onClick={onClick}
     >
       {children}
     </button>

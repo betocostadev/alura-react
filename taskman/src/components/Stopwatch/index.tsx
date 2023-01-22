@@ -12,10 +12,17 @@ interface Props {
 
 const Stopwatch = ({ selected, endTask }: Props) => {
   const [time, setTime] = useState<number>()
+  const [isRunning, setIsRunning] = useState(false)
 
   useEffect(() => {
     if (selected?.time) setTime(hourToSeconds(selected.time))
   }, [selected])
+
+  const startStopWatch = (time: number | undefined) => {
+    if (time === undefined) return
+    setIsRunning(true)
+    runCounter(time)
+  }
 
   const runCounter = (time: number | undefined) => {
     if (time === undefined) return
@@ -25,6 +32,7 @@ const Stopwatch = ({ selected, endTask }: Props) => {
         return runCounter(time - 1)
       }
       endTask()
+      setIsRunning(false)
     }, 1000)
   }
 
@@ -36,7 +44,10 @@ const Stopwatch = ({ selected, endTask }: Props) => {
       <div className={StopwatchStyle.watchWrapper}>
         <Watch time={time} />
       </div>
-      <Button disabled={!time} onClick={() => runCounter(time)}>
+      <Button
+        disabled={!time || isRunning}
+        onClick={() => startStopWatch(time)}
+      >
         Start
       </Button>
     </div>
