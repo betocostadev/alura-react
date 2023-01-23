@@ -1,10 +1,11 @@
 import styles from './Menu.module.scss'
-
+import { ReactComponent as Logo } from 'assets/logo.svg'
 const Menu = () => {
   return (
     <main>
-      <nav className="menu"></nav>
-      Menu
+      <nav className={styles.menu}>
+        <Logo title="hungryman logo" />
+      </nav>
     </main>
   )
 }
