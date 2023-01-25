@@ -4,6 +4,8 @@ import { useState } from 'react'
 import Search from './Search'
 import Filters from './Filters'
 import Orderer from './Orderer'
+import Items from './Items'
+
 const Menu = () => {
   const [search, setSearch] = useState('')
   const [filter, setFilter] = useState<number | null>(null)
@@ -26,6 +28,7 @@ const Menu = () => {
           <Filters filter={filter} setFilter={setFilter} />
           <Orderer order={order} setOrder={setOrder} />
         </div>
+        <Items />
       </section>
     </main>
   )
