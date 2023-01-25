@@ -16,9 +16,9 @@
     "title": "Macarrão da casa",
     "description": "Macarrão com frutos-do-mar e especíarias, especialidade da cozinha. Atenção: Contém camarão e outros frutos-do-mar!",
     "photo": "/assets/items/macarrao_da_casa.png",
-    "size": 400,
+    "size": 480,
     "serving": 2,
-    "price": 17.0,
+    "price": 27.0,
     "id": 2,
     "category": {
       "id": 1,
