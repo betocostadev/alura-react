@@ -6,10 +6,12 @@ import Filters from './Filters'
 import Orderer from './Orderer'
 import Items from './Items'
 
+type orderOptions = '' | 'portion' | 'qty_persons' | 'price'
+
 const Menu = () => {
   const [search, setSearch] = useState('')
   const [filter, setFilter] = useState<number | null>(null)
-  const [order, setOrder] = useState('')
+  const [order, setOrder] = useState<orderOptions>('')
 
   return (
     <main>
@@ -28,7 +30,7 @@ const Menu = () => {
           <Filters filter={filter} setFilter={setFilter} />
           <Orderer order={order} setOrder={setOrder} />
         </div>
-        <Items />
+        <Items search={search} filter={filter} order={order} />
       </section>
     </main>
   )

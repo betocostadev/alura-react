@@ -4,9 +4,10 @@ import classNames from 'classnames'
 import { MdKeyboardArrowUp, MdKeyboardArrowDown } from 'react-icons/md'
 import styles from './Orderer.module.scss'
 
+type orderOptions = '' | 'portion' | 'qty_persons' | 'price'
 interface Props {
-  order: string
-  setOrder: React.Dispatch<React.SetStateAction<string>>
+  order: orderOptions
+  setOrder: React.Dispatch<React.SetStateAction<orderOptions>>
 }
 
 const Orderer = ({ order, setOrder }: Props) => {
@@ -35,7 +36,7 @@ const Orderer = ({ order, setOrder }: Props) => {
           [styles['orderer__options--active']]: open,
         })}
       >
-        {options.map((option) => (
+        {options.map((option: any) => (
           <div
             className={styles.orderer__option}
             key={option.value}
