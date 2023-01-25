@@ -12,7 +12,7 @@ interface Props {
 const Orderer = ({ order, setOrder }: Props) => {
   const [open, setOpen] = useState(false)
   const nameOrderer =
-    order && options.find((option) => option.value === order)?.nome
+    order && options.find((option) => option.value === order)?.name
 
   return (
     <button
@@ -37,11 +37,11 @@ const Orderer = ({ order, setOrder }: Props) => {
       >
         {options.map((option) => (
           <div
-            className={styles.ordenador__option}
+            className={styles.orderer__option}
             key={option.value}
             onClick={() => setOrder(option.value)}
           >
-            {option.nome}
+            {option.name}
           </div>
         ))}
       </div>
