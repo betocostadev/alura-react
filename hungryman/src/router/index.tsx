@@ -2,6 +2,7 @@ import AppMenu from 'components/AppMenu'
 import DefaultPage from 'components/DefaultPage'
 import Footer from 'components/Footer'
 import About from 'pages/About'
+import Dish from 'pages/Dish'
 import Home from 'pages/Home'
 import Menu from 'pages/Menu'
 import NotFound from 'pages/NotFound'
@@ -17,6 +18,7 @@ const AppRouter = () => {
             <Route index element={<Home />} />
             <Route path="menu" element={<Menu />} />
             <Route path="about" element={<About />} />
+            <Route path="dish/:id" element={<Dish />} />
             <Route path="*" element={<NotFound />} />
           </Route>
         </Routes>

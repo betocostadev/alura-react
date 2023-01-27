@@ -7,9 +7,6 @@ import { useNavigate } from 'react-router-dom'
 const NotFound = () => {
   const navigate = useNavigate()
 
-  const goBack = () => {
-    navigate(-1)
-  }
   return (
     <div
       className={classNames({
@@ -18,7 +15,7 @@ const NotFound = () => {
       })}
     >
       <div className={styles.goBack}>
-        <button onClick={() => goBack()}>{'< Voltar'}</button>
+        <button onClick={() => navigate(-1)}>{'< Voltar'}</button>
       </div>
       <NotFoundImage />
       <h3>OOOoooops.... 404</h3>
