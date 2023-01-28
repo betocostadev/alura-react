@@ -2,12 +2,23 @@ import classNames from 'classnames'
 import { useLocation, useNavigate, useParams } from 'react-router-dom'
 import styles from './Dish.module.scss'
 import menu from 'data/menuitems.json'
+import { IDish } from 'types/Dish'
+import NotFound from 'pages/NotFound'
+import DishTags from 'components/DishTags'
 
 const Dish = () => {
   const params = useParams()
   const navigate = useNavigate()
   const { state } = useLocation()
-  const { dish } = state as { dish: typeof menu[0] }
+  // const { dish } = state as { dish: typeof menu[0] }
+
+  const dish: IDish = state?.dish
+    ? state.dish
+    : menu.find((item) => item.id === Number(params.id))
+
+  if (dish === undefined) {
+    return <NotFound />
+  }
 
   return (
     <div>
@@ -22,24 +33,7 @@ const Dish = () => {
         <div>
           <div className={styles.contents}>
             <p className={styles.contents__description}>{dish.description}</p>
-            <div className={styles.tags}>
-              <div
-                className={classNames({
-                  [styles.tags__type]: true,
-                  [styles[`tags__type__${dish.category.label.toLowerCase()}`]]:
-                    true,
-                })}
-              >
-                {dish.category.label}
-              </div>
-              <div className={styles.tags__portion}>{dish.size}g</div>
-              <div className={styles.tags__qtypersons}>
-                Serves {dish.serving} person{dish.serving === 1 ? '' : 's'}
-              </div>
-              <div className={styles.tags__value}>
-                US${dish.price.toFixed(2)}
-              </div>
-            </div>
+            <DishTags {...dish} />
           </div>
         </div>
       </section>
