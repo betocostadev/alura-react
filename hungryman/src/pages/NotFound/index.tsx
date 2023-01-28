@@ -15,7 +15,7 @@ const NotFound = () => {
       })}
     >
       <div className={styles.goBack}>
-        <button onClick={() => navigate(-1)}>{'< Voltar'}</button>
+        <button onClick={() => navigate(-1)}>{'< Go back'}</button>
       </div>
       <NotFoundImage />
       <h3>OOOoooops.... 404</h3>

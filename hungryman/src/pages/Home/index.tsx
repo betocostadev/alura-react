@@ -9,7 +9,7 @@ const Home = () => {
   const recomended = [...menu].sort(() => 0.5 - Math.random()).splice(0, 3)
 
   const goToDish = (dish: typeof menu[0]) => {
-    navigate(`/dish/${dish.id}`, { state: { ...dish } })
+    navigate(`/dish/${dish.id}`, { state: { dish } })
   }
 
   return (

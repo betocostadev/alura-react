@@ -1,5 +1,6 @@
-@import 'styles/variaveis';
+@import 'styles/variables';
 @import 'styles/breakpoints';
+
 .back {
   background-color: transparent;
   border: none;
@@ -38,10 +39,12 @@
     justify-content: space-between;
   }
 }
+
 $pasta: #d73b3b;
 $meat: #30201e;
 $combos: #e6c864;
 $vegan: #80aa40;
+
 .tags {
   display: flex;
   flex-wrap: wrap;
@@ -66,18 +69,18 @@ div {
     justify-content: center;
     padding: 10px 30px;
     &__pasta {
-      background-color: $massas;
+      background-color: $pasta;
       color: white;
     }
     &__meat {
-      background-color: $carnes;
+      background-color: $meat;
       color: white;
     }
     &__combos {
       background-color: $combos;
     }
     &__vegan {
-      background-color: $veganos;
+      background-color: $vegan;
     }
   }
   &__portion,
