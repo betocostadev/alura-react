@@ -1,4 +1,3 @@
-import classNames from 'classnames'
 import { useLocation, useNavigate, useParams } from 'react-router-dom'
 import styles from './Dish.module.scss'
 import menu from 'data/menuitems.json'
